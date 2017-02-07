@@ -1,1 +1,19 @@
 <h1>This is a rails rail </h1>
+<nav>
+  <% if donor_signed_in? %>
+    <ul>
+      <li>Hello, <%= donor.email %></li>
+      <li><%= link_to 'Log Out', destroy_donor_session_path %></li>
+    </ul>
+  <% elsif admin_signed_in? %>
+    <ul>
+      <li>Hello, <%= admin.email %></li>
+      <li><%= link_to 'Log Out', destroy_donor_session_path %></li>
+    </ul>
+  <% else %>
+    <ul>
+      <li><%= link_to 'Sign Up', new_donor_registration_path %></li>
+      <li><%= link_to 'Sign in', new_donor_session_path %></li>
+    </ul>
+  <% end %>
+</nav>
