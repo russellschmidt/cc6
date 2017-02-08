@@ -2,13 +2,13 @@
 <nav>
   <% if donor_signed_in? %>
     <ul>
-      <li>Hello, <%= donor.email %></li>
-      <li><%= link_to 'Log Out', destroy_donor_session_path %></li>
+      <li>Hello, <%= link_to current_donor.email, edit_donor_registration_path %></li>
+      <li><%= link_to 'Log Out', destroy_donor_session_path, method: :delete %></li>
     </ul>
   <% elsif admin_signed_in? %>
     <ul>
-      <li>Hello, <%= admin.email %></li>
-      <li><%= link_to 'Log Out', destroy_donor_session_path %></li>
+      <li>Hello, <%= link_to current_admin.email, edit_admin_registration_path %></li>
+      <li><%= link_to 'Log Out', destroy_donor_session_path, method: :delete %></li>
     </ul>
   <% else %>
     <ul>

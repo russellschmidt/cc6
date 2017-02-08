@@ -43,10 +43,14 @@
 
   <body>
     <div class="container">
-      <% if notice.present? %>
-        <%= notice %>
-      <% elsif alert.present? %>
-        <%= alert %>
+      <% if notice.present? || alert.present? %>
+        <section>
+          <% if notice.present? %>
+            <%= notice %>
+          <% elsif alert.present? %>
+            <%= alert %>
+          <% end %>
+        </section>
       <% end %>
 
       <%= yield %>
